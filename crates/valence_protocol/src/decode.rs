@@ -29,8 +29,8 @@ impl PacketDecoder {
         Self::default()
     }
 
-    pub fn borrow_buffer(self) -> BytesMut {
-        self.buf
+    pub fn borrow_buffer(&self) -> &BytesMut {
+        &self.buf
     }
 
     pub fn try_next_packet(&mut self) -> anyhow::Result<Option<PacketFrame>> {
