@@ -29,6 +29,11 @@ impl PacketDecoder {
         Self::default()
     }
 
+    // Consumes the packet decoder returning all bytes ingested
+    pub fn take_buffer(self) -> BytesMut {
+        self.buf
+    }
+
     pub fn try_next_packet(&mut self) -> anyhow::Result<Option<PacketFrame>> {
         let mut r = &self.buf[..];
 
