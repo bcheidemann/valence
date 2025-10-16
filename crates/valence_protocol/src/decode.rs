@@ -29,8 +29,7 @@ impl PacketDecoder {
         Self::default()
     }
 
-    // Consumes the packet decoder returning all bytes ingested
-    pub fn take_buffer(self) -> BytesMut {
+    pub fn borrow_buffer(self) -> BytesMut {
         self.buf
     }
 
